@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['kved_5fcpu_5fcritical_5fsection_5fenter_0',['kved_cpu_critical_section_enter',['../group___k_v_e_d___c_p_u.html#gaa3ecd7be12aa17b3c6c424e4fe2d3672',1,'kved_cpu.h']]],
+  ['kved_5fcpu_5fcritical_5fsection_5fleave_1',['kved_cpu_critical_section_leave',['../group___k_v_e_d___c_p_u.html#ga614d7217e9bbb7a9f3297a015f655707',1,'kved_cpu.h']]],
+  ['kved_5fdata_5fdelete_2',['kved_data_delete',['../group___k_v_e_d.html#ga7a46b76f9d922db3ede1e45aa8ad4fe1',1,'kved.h']]],
+  ['kved_5fdata_5fread_3',['kved_data_read',['../group___k_v_e_d.html#ga87ef18b6c1e1c5e2cb26b7f89483262a',1,'kved.h']]],
+  ['kved_5fdata_5fread_5fby_5findex_4',['kved_data_read_by_index',['../group___k_v_e_d.html#ga7f291a68b9fdcfbb9b529b84ed705fa0',1,'kved.h']]],
+  ['kved_5fdata_5fwrite_5',['kved_data_write',['../group___k_v_e_d.html#ga4226a6a5f4017c7cec5a2d62b7b3a1d5',1,'kved.h']]],
+  ['kved_5fdump_6',['kved_dump',['../group___k_v_e_d.html#ga4d17003ec78053116dc228432ba460e8',1,'kved.h']]],
+  ['kved_5ffirst_5fused_5findex_5fget_7',['kved_first_used_index_get',['../group___k_v_e_d.html#gac6f51b721f2419c285795b549a101ea7',1,'kved.h']]],
+  ['kved_5fflash_5fdata_5fread_8',['kved_flash_data_read',['../group___k_v_e_d___f_l_a_s_h.html#ga23d35baa1e1c59ce62c5c345d38b680a',1,'kved_flash.h']]],
+  ['kved_5fflash_5fdata_5fwrite_9',['kved_flash_data_write',['../group___k_v_e_d___f_l_a_s_h.html#ga604b7e88f4c258ff1790b797127e3107',1,'kved_flash.h']]],
+  ['kved_5fflash_5finit_10',['kved_flash_init',['../group___k_v_e_d___f_l_a_s_h.html#ga37eaa7297c8f703f39c84719feb0e5c9',1,'kved_flash.h']]],
+  ['kved_5fflash_5fsector_5ferase_11',['kved_flash_sector_erase',['../group___k_v_e_d___f_l_a_s_h.html#ga1c2de94f1d4beacb8ff73ca8b6c957a8',1,'kved_flash.h']]],
+  ['kved_5fflash_5fsector_5fsize_12',['kved_flash_sector_size',['../group___k_v_e_d___f_l_a_s_h.html#ga01c2a4e0e4e2e4db13d0f3d7d13117e1',1,'kved_flash.h']]],
+  ['kved_5fformat_13',['kved_format',['../group___k_v_e_d.html#ga4fbcb6030e23c03fa26d30f1db74fd66',1,'kved.h']]],
+  ['kved_5ffree_5fentries_5fget_14',['kved_free_entries_get',['../group___k_v_e_d.html#gafbf4d4bf8845416616e77bb73467a352',1,'kved.h']]],
+  ['kved_5finit_15',['kved_init',['../group___k_v_e_d.html#ga0d0b155d36b87b1a7de3455661e69a48',1,'kved.h']]],
+  ['kved_5fkey_5fdecode_16',['kved_key_decode',['../group___k_v_e_d.html#ga10ef09b857d8da7bd9a5aaeb894a4db3',1,'kved.h']]],
+  ['kved_5fkey_5fencode_17',['kved_key_encode',['../group___k_v_e_d.html#gac4c7aed29d9816bcacad538fb3c97a43',1,'kved.h']]],
+  ['kved_5fnext_5fused_5findex_5fget_18',['kved_next_used_index_get',['../group___k_v_e_d.html#gaf4dbdf1d089918595f407ca69a33378d',1,'kved.h']]],
+  ['kved_5ftotal_5fentries_5fget_19',['kved_total_entries_get',['../group___k_v_e_d.html#ga38c110c04a87366e2628792fbf0451a2',1,'kved.h']]],
+  ['kved_5fused_5fentries_5fget_20',['kved_used_entries_get',['../group___k_v_e_d.html#ga8b14523570f25dc325fcfe3305fc9e84',1,'kved.h']]]
+];
