@@ -136,7 +136,7 @@ A the momment, 3 ports are supported:
 
 # Documentation
 
-Please, see the [HTML Documentation](./docs/index.html).
+Please, see the [HTML Documentation](https://marcelobarrosalmeida.github.io/kved/).
 
 # License
 
