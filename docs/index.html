@@ -84,6 +84,7 @@ Limitations</h1>
 <li>Your flash needs to support word granularity writings.</li>
 <li>After writing into a flash position (a word) should be possible to write again, lowering bit that were high. This is the mechanism to invalided a register.</li>
 <li>Multiple sectors support not implemented.</li>
+<li>As with many wear leveling systems, it is not desirable to use the system near maximum storage capacity. An effective use of 50% or less of the entries is recommended.</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md3"></a>
 How kved works</h1>
@@ -139,10 +140,14 @@ How kved works</h1>
 +------------+------------+
 </pre><p >The second sector is used when the first sector is full or with many invalid entries. In this case, the second sector is erased and it is populated with all valid entries only, increasing the header counter and freeing space for new entries. When the second sector is full, the first sector will be erased and used, following the same strategy.</p>
 <p >At startup, some integrity checks are made. The first one is related to which sector should be used, being done by the <code>kved_sector_consistency_check()</code> function. Once the sector in use is decided, the data is also checked using the <code>kved_data_consistency_check()</code> function. These checks allow database consistency to be maintained even in the event of a power failure during writing or copying.</p>
+<p >The amount of available entries is dependent on the sector size and the flash word size and can be given by the following expression:</p>
+<pre>
+num_entries = sector_size/(word_size*2) - 1
+</pre><p >For a sector of 2048 bytes and a 32 bits flash, the number of entries is given by 255 entries (2048/(4*2) - 1).</p>
 <h1><a class="anchor" id="autotoc_md4"></a>
 Missing features</h1>
 <ul>
-<li>Data integrity check after writing</li>
+<li>Data key integrity check after writing (verify valid data label, size and labels)</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md5"></a>
 Porting kved</h1>
