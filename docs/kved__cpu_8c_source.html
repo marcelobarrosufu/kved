@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>kved: kved_cpu.h Source File</title>
+<title>kved: kved_cpu.c Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,24 +62,33 @@ $(function() {
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">kved_cpu.h</div></div>
+  <div class="headertitle"><div class="title">kved_cpu.c</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="kved__cpu_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<a href="kved__cpu_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">kved (key/value embedded database), a simple key/value database </span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">implementation for microcontrollers.</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"></span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">Copyright (c) 2022 Marcelo Barros de Almeida &lt;marcelobarrosalmeida@gmail.com&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">*/</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___k_v_e_d___c_p_u.html#gaa3ecd7be12aa17b3c6c424e4fe2d3672">kved_cpu_critical_section_enter</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="kved_8h.html">kved.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="kved__cpu_8h.html">kved_cpu.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="group___k_v_e_d___c_p_u.html#gaa3ecd7be12aa17b3c6c424e4fe2d3672">   18</a></span>__weak <span class="keywordtype">void</span> <a class="code hl_function" href="group___k_v_e_d___c_p_u.html#gaa3ecd7be12aa17b3c6c424e4fe2d3672">kved_cpu_critical_section_enter</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>}</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___k_v_e_d___c_p_u.html#ga614d7217e9bbb7a9f3297a015f655707">kved_cpu_critical_section_leave</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="ttc" id="agroup___k_v_e_d___c_p_u_html_ga614d7217e9bbb7a9f3297a015f655707"><div class="ttname"><a href="group___k_v_e_d___c_p_u.html#ga614d7217e9bbb7a9f3297a015f655707">kved_cpu_critical_section_leave</a></div><div class="ttdeci">void kved_cpu_critical_section_leave(void)</div><div class="ttdoc">Critical section exit.</div><div class="ttdef"><b>Definition:</b> <a href="kved__cpu_8c_source.html#l00022">kved_cpu.c:22</a></div></div>
-<div class="ttc" id="agroup___k_v_e_d___c_p_u_html_gaa3ecd7be12aa17b3c6c424e4fe2d3672"><div class="ttname"><a href="group___k_v_e_d___c_p_u.html#gaa3ecd7be12aa17b3c6c424e4fe2d3672">kved_cpu_critical_section_enter</a></div><div class="ttdeci">void kved_cpu_critical_section_enter(void)</div><div class="ttdoc">Critical section entry point.</div><div class="ttdef"><b>Definition:</b> <a href="kved__cpu_8c_source.html#l00018">kved_cpu.c:18</a></div></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="group___k_v_e_d___c_p_u.html#ga614d7217e9bbb7a9f3297a015f655707">   22</a></span>__weak <span class="keywordtype">void</span> <a class="code hl_function" href="group___k_v_e_d___c_p_u.html#ga614d7217e9bbb7a9f3297a015f655707">kved_cpu_critical_section_leave</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{   </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>}</div>
+<div class="ttc" id="agroup___k_v_e_d___c_p_u_html_ga614d7217e9bbb7a9f3297a015f655707"><div class="ttname"><a href="group___k_v_e_d___c_p_u.html#ga614d7217e9bbb7a9f3297a015f655707">kved_cpu_critical_section_leave</a></div><div class="ttdeci">__weak void kved_cpu_critical_section_leave(void)</div><div class="ttdoc">Critical section exit.</div><div class="ttdef"><b>Definition:</b> <a href="kved__cpu_8c_source.html#l00022">kved_cpu.c:22</a></div></div>
+<div class="ttc" id="agroup___k_v_e_d___c_p_u_html_gaa3ecd7be12aa17b3c6c424e4fe2d3672"><div class="ttname"><a href="group___k_v_e_d___c_p_u.html#gaa3ecd7be12aa17b3c6c424e4fe2d3672">kved_cpu_critical_section_enter</a></div><div class="ttdeci">__weak void kved_cpu_critical_section_enter(void)</div><div class="ttdoc">Critical section entry point.</div><div class="ttdef"><b>Definition:</b> <a href="kved__cpu_8c_source.html#l00018">kved_cpu.c:18</a></div></div>
+<div class="ttc" id="akved_8h_html"><div class="ttname"><a href="kved_8h.html">kved.h</a></div></div>
+<div class="ttc" id="akved__cpu_8h_html"><div class="ttname"><a href="kved__cpu_8h.html">kved_cpu.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -5,6 +5,10 @@ implementation for microcontrollers.
 Copyright (c) 2022 Marcelo Barros de Almeida <marcelobarrosalmeida@gmail.com>
 */
 
+/**
+@file
+*/
+
 #include <stdint.h>
 #include <stdbool.h>
 #include <string.h>
@@ -16,6 +20,7 @@ Copyright (c) 2022 Marcelo Barros de Almeida <marcelobarrosalmeida@gmail.com>
 #include "kved_flash.h"
 
 // must match @ref kved_data_t
+/** @private */
 const uint8_t kved_data_type_size[] = 
 { 
 	1,
@@ -33,21 +38,23 @@ const uint8_t kved_data_type_size[] =
 #endif
 };
 
+/** @private */
 typedef struct kved_sector_stat_s
 {
-	uint16_t num_free_entries;
-	uint16_t num_deleted_entries;
-	uint16_t num_used_entries;
-	uint16_t num_total_entries;
+	uint16_t num_free_entries;    /**< @private */
+	uint16_t num_deleted_entries; /**< @private */
+	uint16_t num_used_entries;    /**< @private */
+	uint16_t num_total_entries;   /**< @private */
 } kved_sector_stat_t;
 
+/** @private */
 typedef struct kved_ctrl_s
 {
-	uint16_t first_index;
-	uint16_t first_free_index;
-	uint16_t last_index;
-	kved_sector_stat_t stats;
-	kved_flash_sector_t sector;
+	uint16_t first_index;       /**< @private */
+	uint16_t first_free_index;  /**< @private */
+	uint16_t last_index;        /**< @private */
+	kved_sector_stat_t stats;   /**< @private */
+	kved_flash_sector_t sector; /**< @private */
 } kved_ctrl_t;
 
 static kved_ctrl_t ctrl = { 0 };
@@ -658,7 +665,7 @@ bool kved_data_delete(kved_data_t *data)
 	return result;
 }
 
-void kved_internal_format(void)
+static void kved_internal_format(void)
 {
 	// erase data and control
 	kved_flash_sector_erase(KVED_FLASH_SECTOR_A);

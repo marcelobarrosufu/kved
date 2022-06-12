@@ -153,9 +153,9 @@ Missing features</h1>
 Porting kved</h1>
 <p >kved basically depends on the following files:</p>
 <ul>
-<li><code><a class="el" href="kved__config_8h_source.html">kved_config.h</a></code>: define your flash word size (<code>KVED_FLASH_WORD_SIZE</code>)</li>
-<li><code>kved.c</code> / <code><a class="el" href="kved_8h.html">kved.h</a></code>: kved implementation</li>
-<li><code>kved_cpu.c</code> / <code><a class="el" href="kved__cpu_8h.html">kved_cpu.h</a></code>: cpu portability API if you need thead/interrupt safe operation</li>
+<li><code><a class="el" href="kved__config_8h.html">kved_config.h</a></code>: define your flash word size (<code>KVED_FLASH_WORD_SIZE</code>)</li>
+<li><code><a class="el" href="kved_8c.html">kved.c</a></code> / <code><a class="el" href="kved_8h.html">kved.h</a></code>: kved implementation</li>
+<li><code><a class="el" href="kved__cpu_8c.html">kved_cpu.c</a></code> / <code><a class="el" href="kved__cpu_8h.html">kved_cpu.h</a></code>: cpu portability API if you need thead/interrupt safe operation</li>
 <li><code>kved_flash.c</code> / <code><a class="el" href="kved__flash_8h.html">kved_flash.h</a></code>: flash API</li>
 </ul>
 <p >All these files should be portable and platform independent. However, you need to write the portability layer. So, create these files and code them according to your microcontroller:</p>

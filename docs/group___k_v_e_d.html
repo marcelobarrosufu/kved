@@ -106,12 +106,15 @@ Macros</h2></td></tr>
 <tr class="separator:gacb957c15177da0754036727f67c11a47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga93ea69760d2ae6f394635fe4481c412f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___k_v_e_d.html#ga93ea69760d2ae6f394635fe4481c412f">KVED_FLASH_UINT_MAX</a>&#160;&#160;&#160;((<a class="el" href="group___k_v_e_d.html#gac18c6ebe44dabf188376ccf97d0f2cae">kved_word_t</a>)(~0))</td></tr>
 <tr class="separator:ga93ea69760d2ae6f394635fe4481c412f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabd2235e7760e98744ecebd177e6e3434"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___k_v_e_d.html#gabd2235e7760e98744ecebd177e6e3434">KVED_MAX_STRING_SIZE</a>&#160;&#160;&#160;(KVED_FLASH_WORD_SIZE)</td></tr>
+<tr class="memitem:gabd2235e7760e98744ecebd177e6e3434"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___k_v_e_d.html#gabd2235e7760e98744ecebd177e6e3434">KVED_MAX_STRING_SIZE</a>&#160;&#160;&#160;(<a class="el" href="group___k_v_e_d.html#gabdcecd41dafb9fb70a0dcd4f07ffcc50">KVED_FLASH_WORD_SIZE</a>)</td></tr>
 <tr class="separator:gabd2235e7760e98744ecebd177e6e3434"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaad22b74165a6a3fd5e32b2ac5f7e90cd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___k_v_e_d.html#gaad22b74165a6a3fd5e32b2ac5f7e90cd">KVED_MAX_KEY_SIZE</a>&#160;&#160;&#160;(KVED_FLASH_WORD_SIZE-1)</td></tr>
+<tr class="memitem:gaad22b74165a6a3fd5e32b2ac5f7e90cd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___k_v_e_d.html#gaad22b74165a6a3fd5e32b2ac5f7e90cd">KVED_MAX_KEY_SIZE</a>&#160;&#160;&#160;(<a class="el" href="group___k_v_e_d.html#gabdcecd41dafb9fb70a0dcd4f07ffcc50">KVED_FLASH_WORD_SIZE</a>-1)</td></tr>
 <tr class="separator:gaad22b74165a6a3fd5e32b2ac5f7e90cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac07b3d4adb14be1b648929f06b7017c0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___k_v_e_d.html#gac07b3d4adb14be1b648929f06b7017c0">KVED_INDEX_NOT_FOUND</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:gac07b3d4adb14be1b648929f06b7017c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabdcecd41dafb9fb70a0dcd4f07ffcc50"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___k_v_e_d.html#gabdcecd41dafb9fb70a0dcd4f07ffcc50">KVED_FLASH_WORD_SIZE</a>&#160;&#160;&#160;(4)</td></tr>
+<tr class="memdesc:gabdcecd41dafb9fb70a0dcd4f07ffcc50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flash word size. Set your flash word size (4 or 8 bytes). This can be done when compiling using -DKVED_FLASH_WORD_SIZE=8, for instance.  <a href="group___k_v_e_d.html#gabdcecd41dafb9fb70a0dcd4f07ffcc50">More...</a><br /></td></tr>
+<tr class="separator:gabdcecd41dafb9fb70a0dcd4f07ffcc50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -176,13 +179,11 @@ Functions</h2></td></tr>
 <tr class="memitem:gafbf4d4bf8845416616e77bb73467a352"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___k_v_e_d.html#gafbf4d4bf8845416616e77bb73467a352">kved_free_entries_get</a> (void)</td></tr>
 <tr class="memdesc:gafbf4d4bf8845416616e77bb73467a352"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number available entries in the database.  <a href="group___k_v_e_d.html#gafbf4d4bf8845416616e77bb73467a352">More...</a><br /></td></tr>
 <tr class="separator:gafbf4d4bf8845416616e77bb73467a352"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4d17003ec78053116dc228432ba460e8"><td class="memItemLeft" align="right" valign="top"><a id="ga4d17003ec78053116dc228432ba460e8" name="ga4d17003ec78053116dc228432ba460e8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>kved_dump</b> (void)</td></tr>
-<tr class="memdesc:ga4d17003ec78053116dc228432ba460e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print all values stored in the database. <br /></td></tr>
+<tr class="memitem:ga4d17003ec78053116dc228432ba460e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___k_v_e_d.html#ga4d17003ec78053116dc228432ba460e8">kved_dump</a> (void)</td></tr>
+<tr class="memdesc:ga4d17003ec78053116dc228432ba460e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print all values stored in the database.  <a href="group___k_v_e_d.html#ga4d17003ec78053116dc228432ba460e8">More...</a><br /></td></tr>
 <tr class="separator:ga4d17003ec78053116dc228432ba460e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4fbcb6030e23c03fa26d30f1db74fd66"><td class="memItemLeft" align="right" valign="top"><a id="ga4fbcb6030e23c03fa26d30f1db74fd66" name="ga4fbcb6030e23c03fa26d30f1db74fd66"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>kved_format</b> (void)</td></tr>
-<tr class="memdesc:ga4fbcb6030e23c03fa26d30f1db74fd66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Format the database, deleting all values. <br /></td></tr>
+<tr class="memitem:ga4fbcb6030e23c03fa26d30f1db74fd66"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___k_v_e_d.html#ga4fbcb6030e23c03fa26d30f1db74fd66">kved_format</a> (void)</td></tr>
+<tr class="memdesc:ga4fbcb6030e23c03fa26d30f1db74fd66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Format the database, deleting all values.  <a href="group___k_v_e_d.html#ga4fbcb6030e23c03fa26d30f1db74fd66">More...</a><br /></td></tr>
 <tr class="separator:ga4fbcb6030e23c03fa26d30f1db74fd66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga10ef09b857d8da7bd9a5aaeb894a4db3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___k_v_e_d.html#ga10ef09b857d8da7bd9a5aaeb894a4db3">kved_key_decode</a> (<a class="el" href="group___k_v_e_d.html#gac1323f986d787f8249fdf3136cb96746">kved_data_t</a> *data, <a class="el" href="group___k_v_e_d.html#gac18c6ebe44dabf188376ccf97d0f2cae">kved_word_t</a> key)</td></tr>
 <tr class="memdesc:ga10ef09b857d8da7bd9a5aaeb894a4db3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given a key entry from database, decode it to data type and user key.  <a href="group___k_v_e_d.html#ga10ef09b857d8da7bd9a5aaeb894a4db3">More...</a><br /></td></tr>
@@ -190,9 +191,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>kved_format</b> (void
 <tr class="memitem:gac4c7aed29d9816bcacad538fb3c97a43"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___k_v_e_d.html#gac18c6ebe44dabf188376ccf97d0f2cae">kved_word_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___k_v_e_d.html#gac4c7aed29d9816bcacad538fb3c97a43">kved_key_encode</a> (<a class="el" href="group___k_v_e_d.html#gac1323f986d787f8249fdf3136cb96746">kved_data_t</a> *data)</td></tr>
 <tr class="memdesc:gac4c7aed29d9816bcacad538fb3c97a43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given a data type and user key, encode it as a key entry to be written in the database.  <a href="group___k_v_e_d.html#gac4c7aed29d9816bcacad538fb3c97a43">More...</a><br /></td></tr>
 <tr class="separator:gac4c7aed29d9816bcacad538fb3c97a43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0d0b155d36b87b1a7de3455661e69a48"><td class="memItemLeft" align="right" valign="top"><a id="ga0d0b155d36b87b1a7de3455661e69a48" name="ga0d0b155d36b87b1a7de3455661e69a48"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>kved_init</b> (void)</td></tr>
-<tr class="memdesc:ga0d0b155d36b87b1a7de3455661e69a48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the database. Must be called before any use. <br /></td></tr>
+<tr class="memitem:ga0d0b155d36b87b1a7de3455661e69a48"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___k_v_e_d.html#ga0d0b155d36b87b1a7de3455661e69a48">kved_init</a> (void)</td></tr>
+<tr class="memdesc:ga0d0b155d36b87b1a7de3455661e69a48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the database. Must be called before any use.  <a href="group___k_v_e_d.html#ga0d0b155d36b87b1a7de3455661e69a48">More...</a><br /></td></tr>
 <tr class="separator:ga0d0b155d36b87b1a7de3455661e69a48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -211,6 +211,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>kved_init</b> (void)<
 </div><div class="memdoc">
 <p >deleted entry identification </p>
 
+<p class="definition">Definition at line <a class="el" href="kved_8h_source.html#l00055">55</a> of file <a class="el" href="kved_8h_source.html">kved.h</a>.</p>
+
 </div>
 </div>
 <a id="gafa924f87e855d98ad2440e3f1e0c0449" name="gafa924f87e855d98ad2440e3f1e0c0449"></a>
@@ -225,6 +227,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>kved_init</b> (void)<
       </table>
 </div><div class="memdoc">
 <p >kved entry size </p>
+
+<p class="definition">Definition at line <a class="el" href="kved_8h_source.html#l00061">61</a> of file <a class="el" href="kved_8h_source.html">kved.h</a>.</p>
 
 </div>
 </div>
@@ -241,6 +245,26 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>kved_init</b> (void)<
 </div><div class="memdoc">
 <p >last valid unsigned int value for current flash word </p>
 
+<p class="definition">Definition at line <a class="el" href="kved_8h_source.html#l00066">66</a> of file <a class="el" href="kved_8h_source.html">kved.h</a>.</p>
+
+</div>
+</div>
+<a id="gabdcecd41dafb9fb70a0dcd4f07ffcc50" name="gabdcecd41dafb9fb70a0dcd4f07ffcc50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabdcecd41dafb9fb70a0dcd4f07ffcc50">&#9670;&nbsp;</a></span>KVED_FLASH_WORD_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define KVED_FLASH_WORD_SIZE&#160;&#160;&#160;(4)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Flash word size. Set your flash word size (4 or 8 bytes). This can be done when compiling using -DKVED_FLASH_WORD_SIZE=8, for instance. </p>
+
+<p class="definition">Definition at line <a class="el" href="kved__config_8h_source.html#l00024">24</a> of file <a class="el" href="kved__config_8h_source.html">kved_config.h</a>.</p>
+
 </div>
 </div>
 <a id="gadf143d114dd7afdaca1ca2d0fad1de7a" name="gadf143d114dd7afdaca1ca2d0fad1de7a"></a>
@@ -256,6 +280,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>kved_init</b> (void)<
 </div><div class="memdoc">
 <p >free entry identification </p>
 
+<p class="definition">Definition at line <a class="el" href="kved_8h_source.html#l00056">56</a> of file <a class="el" href="kved_8h_source.html">kved.h</a>.</p>
+
 </div>
 </div>
 <a id="gae800de196d841eba4bc137559d927cca" name="gae800de196d841eba4bc137559d927cca"></a>
@@ -270,6 +296,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>kved_init</b> (void)<
       </table>
 </div><div class="memdoc">
 <p >label entry mask </p>
+
+<p class="definition">Definition at line <a class="el" href="kved_8h_source.html#l00057">57</a> of file <a class="el" href="kved_8h_source.html">kved.h</a>.</p>
 
 </div>
 </div>
@@ -290,6 +318,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>kved_init</b> (void)<
 </div><div class="memdoc">
 <p >label entry mask </p>
 
+<p class="definition">Definition at line <a class="el" href="kved_8h_source.html#l00062">62</a> of file <a class="el" href="kved_8h_source.html">kved.h</a>.</p>
+
 </div>
 </div>
 <a id="gacb957c15177da0754036727f67c11a47" name="gacb957c15177da0754036727f67c11a47"></a>
@@ -308,6 +338,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>kved_init</b> (void)<
       </table>
 </div><div class="memdoc">
 <p >size entry mask </p>
+
+<p class="definition">Definition at line <a class="el" href="kved_8h_source.html#l00064">64</a> of file <a class="el" href="kved_8h_source.html">kved.h</a>.</p>
 
 </div>
 </div>
@@ -328,6 +360,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>kved_init</b> (void)<
 </div><div class="memdoc">
 <p >type entry mask </p>
 
+<p class="definition">Definition at line <a class="el" href="kved_8h_source.html#l00063">63</a> of file <a class="el" href="kved_8h_source.html">kved.h</a>.</p>
+
 </div>
 </div>
 <a id="ga526aae337f229fc5d60f18a4b81b4939" name="ga526aae337f229fc5d60f18a4b81b4939"></a>
@@ -342,6 +376,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>kved_init</b> (void)<
       </table>
 </div><div class="memdoc">
 <p >kved header size </p>
+
+<p class="definition">Definition at line <a class="el" href="kved_8h_source.html#l00060">60</a> of file <a class="el" href="kved_8h_source.html">kved.h</a>.</p>
 
 </div>
 </div>
@@ -358,6 +394,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>kved_init</b> (void)<
 </div><div class="memdoc">
 <p >Index return value when a key is not found in the database </p>
 
+<p class="definition">Definition at line <a class="el" href="kved_8h_source.html#l00073">73</a> of file <a class="el" href="kved_8h_source.html">kved.h</a>.</p>
+
 </div>
 </div>
 <a id="gaad22b74165a6a3fd5e32b2ac5f7e90cd" name="gaad22b74165a6a3fd5e32b2ac5f7e90cd"></a>
@@ -367,11 +405,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>kved_init</b> (void)<
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define KVED_MAX_KEY_SIZE&#160;&#160;&#160;(KVED_FLASH_WORD_SIZE-1)</td>
+          <td class="memname">#define KVED_MAX_KEY_SIZE&#160;&#160;&#160;(<a class="el" href="group___k_v_e_d.html#gabdcecd41dafb9fb70a0dcd4f07ffcc50">KVED_FLASH_WORD_SIZE</a>-1)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p >Key size for data access, with terminator </p>
+
+<p class="definition">Definition at line <a class="el" href="kved_8h_source.html#l00071">71</a> of file <a class="el" href="kved_8h_source.html">kved.h</a>.</p>
 
 </div>
 </div>
@@ -382,11 +422,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>kved_init</b> (void)<
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define KVED_MAX_STRING_SIZE&#160;&#160;&#160;(KVED_FLASH_WORD_SIZE)</td>
+          <td class="memname">#define KVED_MAX_STRING_SIZE&#160;&#160;&#160;(<a class="el" href="group___k_v_e_d.html#gabdcecd41dafb9fb70a0dcd4f07ffcc50">KVED_FLASH_WORD_SIZE</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p >Maximum supported string length, per record, without termination </p>
+
+<p class="definition">Definition at line <a class="el" href="kved_8h_source.html#l00069">69</a> of file <a class="el" href="kved_8h_source.html">kved.h</a>.</p>
 
 </div>
 </div>
@@ -403,6 +445,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>kved_init</b> (void)<
 </div><div class="memdoc">
 <p >kved signature </p>
 
+<p class="definition">Definition at line <a class="el" href="kved_8h_source.html#l00054">54</a> of file <a class="el" href="kved_8h_source.html">kved.h</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Typedef Documentation</h2>
@@ -418,6 +462,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>kved_init</b> (void)<
       </table>
 </div><div class="memdoc">
 <p >flash word data type </p>
+
+<p class="definition">Definition at line <a class="el" href="kved_8h_source.html#l00043">43</a> of file <a class="el" href="kved_8h_source.html">kved.h</a>.</p>
 
 </div>
 </div>
@@ -454,6 +500,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>kved_init</b> (void)<
 </td></tr>
 </table>
 
+<p class="definition">Definition at line <a class="el" href="kved_8h_source.html#l00078">78</a> of file <a class="el" href="kved_8h_source.html">kved.h</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
@@ -489,10 +537,12 @@ false: error during the erasuring process.</dd></dl>
 <div class="line"> </div>
 <div class="line"><span class="keywordflow">if</span>(<a class="code hl_function" href="group___k_v_e_d.html#ga7a46b76f9d922db3ede1e45aa8ad4fe1">kved_data_delete</a>(&amp;kv1))</div>
 <div class="line">    printf(<span class="stringliteral">&quot;Entry erased&quot;</span>);</div>
-<div class="ttc" id="agroup___k_v_e_d_html_ga7a46b76f9d922db3ede1e45aa8ad4fe1"><div class="ttname"><a href="group___k_v_e_d.html#ga7a46b76f9d922db3ede1e45aa8ad4fe1">kved_data_delete</a></div><div class="ttdeci">bool kved_data_delete(kved_data_t *data)</div><div class="ttdoc">Deletes a previously saved value in the database, if it exists.</div></div>
-<div class="ttc" id="astructkved__data__s_html"><div class="ttname"><a href="structkved__data__s.html">kved_data_s</a></div><div class="ttdoc">Structure for accessing the database containing information about key, type and value.</div><div class="ttdef"><b>Definition:</b> kved.h:119</div></div>
-<div class="ttc" id="astructkved__data__s_html_a594017ad6b864050d6c3ba0009cf7857"><div class="ttname"><a href="structkved__data__s.html#a594017ad6b864050d6c3ba0009cf7857">kved_data_s::key</a></div><div class="ttdeci">uint8_t key[KVED_MAX_KEY_SIZE]</div><div class="ttdef"><b>Definition:</b> kved.h:121</div></div>
+<div class="ttc" id="agroup___k_v_e_d_html_ga7a46b76f9d922db3ede1e45aa8ad4fe1"><div class="ttname"><a href="group___k_v_e_d.html#ga7a46b76f9d922db3ede1e45aa8ad4fe1">kved_data_delete</a></div><div class="ttdeci">bool kved_data_delete(kved_data_t *data)</div><div class="ttdoc">Deletes a previously saved value in the database, if it exists.</div><div class="ttdef"><b>Definition:</b> <a href="kved_8c_source.html#l00657">kved.c:657</a></div></div>
+<div class="ttc" id="astructkved__data__s_html"><div class="ttname"><a href="structkved__data__s.html">kved_data_s</a></div><div class="ttdoc">Structure for accessing the database containing information about key, type and value.</div><div class="ttdef"><b>Definition:</b> <a href="kved_8h_source.html#l00118">kved.h:119</a></div></div>
+<div class="ttc" id="astructkved__data__s_html_a594017ad6b864050d6c3ba0009cf7857"><div class="ttname"><a href="structkved__data__s.html#a594017ad6b864050d6c3ba0009cf7857">kved_data_s::key</a></div><div class="ttdeci">uint8_t key[KVED_MAX_KEY_SIZE]</div><div class="ttdef"><b>Definition:</b> <a href="kved_8h_source.html#l00121">kved.h:121</a></div></div>
 </div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="kved_8c_source.html#l00657">657</a> of file <a class="el" href="kved_8c_source.html">kved.c</a>.</p>
+
 </div>
 </div>
 <a id="ga87ef18b6c1e1c5e2cb26b7f89483262a" name="ga87ef18b6c1e1c5e2cb26b7f89483262a"></a>
@@ -534,11 +584,13 @@ false: error during the reading process.</dd></dl>
 <div class="line"> </div>
 <div class="line"><span class="keywordflow">if</span>(<a class="code hl_function" href="group___k_v_e_d.html#ga87ef18b6c1e1c5e2cb26b7f89483262a">kved_data_read</a>(&amp;kv2))</div>
 <div class="line">    printf(<span class="stringliteral">&quot;Value: %4s\n&quot;</span>,kv2.<a class="code hl_variable" href="structkved__data__s.html#a8f7d3ec92f1f7e7f877471b475b3aca5">value</a>.<a class="code hl_variable" href="unionkved__value__u.html#a72ad96a6135bdcfde66f863034c7e021">str</a>);</div>
-<div class="ttc" id="agroup___k_v_e_d_html_ga87ef18b6c1e1c5e2cb26b7f89483262a"><div class="ttname"><a href="group___k_v_e_d.html#ga87ef18b6c1e1c5e2cb26b7f89483262a">kved_data_read</a></div><div class="ttdeci">bool kved_data_read(kved_data_t *data)</div><div class="ttdoc">Retrieves a previously saved value from database.</div></div>
-<div class="ttc" id="astructkved__data__s_html_a8f7d3ec92f1f7e7f877471b475b3aca5"><div class="ttname"><a href="structkved__data__s.html#a8f7d3ec92f1f7e7f877471b475b3aca5">kved_data_s::value</a></div><div class="ttdeci">kved_value_t value</div><div class="ttdef"><b>Definition:</b> kved.h:120</div></div>
-<div class="ttc" id="aunionkved__value__u_html_a72ad96a6135bdcfde66f863034c7e021"><div class="ttname"><a href="unionkved__value__u.html#a72ad96a6135bdcfde66f863034c7e021">kved_value_u::str</a></div><div class="ttdeci">uint8_t str[KVED_MAX_STRING_SIZE]</div><div class="ttdef"><b>Definition:</b> kved.h:107</div></div>
-<div class="ttc" id="aunionkved__value__u_html_ac137d47c4e3e853293e61bc4f0479634"><div class="ttname"><a href="unionkved__value__u.html#ac137d47c4e3e853293e61bc4f0479634">kved_value_u::u32</a></div><div class="ttdeci">uint32_t u32</div><div class="ttdef"><b>Definition:</b> kved.h:104</div></div>
+<div class="ttc" id="agroup___k_v_e_d_html_ga87ef18b6c1e1c5e2cb26b7f89483262a"><div class="ttname"><a href="group___k_v_e_d.html#ga87ef18b6c1e1c5e2cb26b7f89483262a">kved_data_read</a></div><div class="ttdeci">bool kved_data_read(kved_data_t *data)</div><div class="ttdoc">Retrieves a previously saved value from database.</div><div class="ttdef"><b>Definition:</b> <a href="kved_8c_source.html#l00619">kved.c:619</a></div></div>
+<div class="ttc" id="astructkved__data__s_html_a8f7d3ec92f1f7e7f877471b475b3aca5"><div class="ttname"><a href="structkved__data__s.html#a8f7d3ec92f1f7e7f877471b475b3aca5">kved_data_s::value</a></div><div class="ttdeci">kved_value_t value</div><div class="ttdef"><b>Definition:</b> <a href="kved_8h_source.html#l00120">kved.h:120</a></div></div>
+<div class="ttc" id="aunionkved__value__u_html_a72ad96a6135bdcfde66f863034c7e021"><div class="ttname"><a href="unionkved__value__u.html#a72ad96a6135bdcfde66f863034c7e021">kved_value_u::str</a></div><div class="ttdeci">uint8_t str[KVED_MAX_STRING_SIZE]</div><div class="ttdef"><b>Definition:</b> <a href="kved_8h_source.html#l00107">kved.h:107</a></div></div>
+<div class="ttc" id="aunionkved__value__u_html_ac137d47c4e3e853293e61bc4f0479634"><div class="ttname"><a href="unionkved__value__u.html#ac137d47c4e3e853293e61bc4f0479634">kved_value_u::u32</a></div><div class="ttdeci">uint32_t u32</div><div class="ttdef"><b>Definition:</b> <a href="kved_8h_source.html#l00104">kved.h:104</a></div></div>
 </div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="kved_8c_source.html#l00619">619</a> of file <a class="el" href="kved_8c_source.html">kved.c</a>.</p>
+
 </div>
 </div>
 <a id="ga7f291a68b9fdcfbb9b529b84ed705fa0" name="ga7f291a68b9fdcfbb9b529b84ed705fa0"></a>
@@ -590,11 +642,13 @@ false: error during reading process.</dd></dl>
 <div class="line">    printf(<span class="stringliteral">&quot;- Key: %s\n&quot;</span>,kv1.<a class="code hl_variable" href="structkved__data__s.html#a594017ad6b864050d6c3ba0009cf7857">key</a>);</div>
 <div class="line">    index = <a class="code hl_function" href="group___k_v_e_d.html#gaf4dbdf1d089918595f407ca69a33378d">kved_next_used_index_get</a>(index);</div>
 <div class="line">}</div>
-<div class="ttc" id="agroup___k_v_e_d_html_ga7f291a68b9fdcfbb9b529b84ed705fa0"><div class="ttname"><a href="group___k_v_e_d.html#ga7f291a68b9fdcfbb9b529b84ed705fa0">kved_data_read_by_index</a></div><div class="ttdeci">bool kved_data_read_by_index(uint16_t index, kved_data_t *data)</div><div class="ttdoc">Retrieves a previously saved value from database but using an index. This function is used in conjunc...</div></div>
-<div class="ttc" id="agroup___k_v_e_d_html_gac07b3d4adb14be1b648929f06b7017c0"><div class="ttname"><a href="group___k_v_e_d.html#gac07b3d4adb14be1b648929f06b7017c0">KVED_INDEX_NOT_FOUND</a></div><div class="ttdeci">#define KVED_INDEX_NOT_FOUND</div><div class="ttdef"><b>Definition:</b> kved.h:73</div></div>
-<div class="ttc" id="agroup___k_v_e_d_html_gac6f51b721f2419c285795b549a101ea7"><div class="ttname"><a href="group___k_v_e_d.html#gac6f51b721f2419c285795b549a101ea7">kved_first_used_index_get</a></div><div class="ttdeci">uint16_t kved_first_used_index_get(void)</div><div class="ttdoc">Get the first valid index in the database.</div></div>
-<div class="ttc" id="agroup___k_v_e_d_html_gaf4dbdf1d089918595f407ca69a33378d"><div class="ttname"><a href="group___k_v_e_d.html#gaf4dbdf1d089918595f407ca69a33378d">kved_next_used_index_get</a></div><div class="ttdeci">uint16_t kved_next_used_index_get(uint16_t last_index)</div><div class="ttdoc">Given the last index, get the next valid index from the database.</div></div>
+<div class="ttc" id="agroup___k_v_e_d_html_ga7f291a68b9fdcfbb9b529b84ed705fa0"><div class="ttname"><a href="group___k_v_e_d.html#ga7f291a68b9fdcfbb9b529b84ed705fa0">kved_data_read_by_index</a></div><div class="ttdeci">bool kved_data_read_by_index(uint16_t index, kved_data_t *data)</div><div class="ttdoc">Retrieves a previously saved value from database but using an index. This function is used in conjunc...</div><div class="ttdef"><b>Definition:</b> <a href="kved_8c_source.html#l00525">kved.c:525</a></div></div>
+<div class="ttc" id="agroup___k_v_e_d_html_gac07b3d4adb14be1b648929f06b7017c0"><div class="ttname"><a href="group___k_v_e_d.html#gac07b3d4adb14be1b648929f06b7017c0">KVED_INDEX_NOT_FOUND</a></div><div class="ttdeci">#define KVED_INDEX_NOT_FOUND</div><div class="ttdef"><b>Definition:</b> <a href="kved_8h_source.html#l00073">kved.h:73</a></div></div>
+<div class="ttc" id="agroup___k_v_e_d_html_gac6f51b721f2419c285795b549a101ea7"><div class="ttname"><a href="group___k_v_e_d.html#gac6f51b721f2419c285795b549a101ea7">kved_first_used_index_get</a></div><div class="ttdeci">uint16_t kved_first_used_index_get(void)</div><div class="ttdoc">Get the first valid index in the database.</div><div class="ttdef"><b>Definition:</b> <a href="kved_8c_source.html#l00468">kved.c:468</a></div></div>
+<div class="ttc" id="agroup___k_v_e_d_html_gaf4dbdf1d089918595f407ca69a33378d"><div class="ttname"><a href="group___k_v_e_d.html#gaf4dbdf1d089918595f407ca69a33378d">kved_next_used_index_get</a></div><div class="ttdeci">uint16_t kved_next_used_index_get(uint16_t last_index)</div><div class="ttdoc">Given the last index, get the next valid index from the database.</div><div class="ttdef"><b>Definition:</b> <a href="kved_8c_source.html#l00497">kved.c:497</a></div></div>
 </div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="kved_8c_source.html#l00525">525</a> of file <a class="el" href="kved_8c_source.html">kved.c</a>.</p>
+
 </div>
 </div>
 <a id="ga4226a6a5f4017c7cec5a2d62b7b3a1d5" name="ga4226a6a5f4017c7cec5a2d62b7b3a1d5"></a>
@@ -637,11 +691,35 @@ false: error during the recording process.</dd></dl>
 <div class="line"> </div>
 <div class="line"><a class="code hl_function" href="group___k_v_e_d.html#ga4226a6a5f4017c7cec5a2d62b7b3a1d5">kved_data_write</a>(&amp;kv1);</div>
 <div class="line"><a class="code hl_function" href="group___k_v_e_d.html#ga4226a6a5f4017c7cec5a2d62b7b3a1d5">kved_data_write</a>(&amp;kv2);</div>
-<div class="ttc" id="agroup___k_v_e_d_html_ga4226a6a5f4017c7cec5a2d62b7b3a1d5"><div class="ttname"><a href="group___k_v_e_d.html#ga4226a6a5f4017c7cec5a2d62b7b3a1d5">kved_data_write</a></div><div class="ttdeci">bool kved_data_write(kved_data_t *data)</div><div class="ttdoc">Writes a new value to the database.</div></div>
-<div class="ttc" id="agroup___k_v_e_d_html_ggad7558d8889d87fb23c8e2bd5b125e69ea2081d2031bc2e663906a08d7511d414a"><div class="ttname"><a href="group___k_v_e_d.html#ggad7558d8889d87fb23c8e2bd5b125e69ea2081d2031bc2e663906a08d7511d414a">KVED_DATA_TYPE_UINT32</a></div><div class="ttdeci">@ KVED_DATA_TYPE_UINT32</div><div class="ttdef"><b>Definition:</b> kved.h:84</div></div>
-<div class="ttc" id="agroup___k_v_e_d_html_ggad7558d8889d87fb23c8e2bd5b125e69ea2f960cf54633b3b71fb7dce43b2a876f"><div class="ttname"><a href="group___k_v_e_d.html#ggad7558d8889d87fb23c8e2bd5b125e69ea2f960cf54633b3b71fb7dce43b2a876f">KVED_DATA_TYPE_STRING</a></div><div class="ttdeci">@ KVED_DATA_TYPE_STRING</div><div class="ttdef"><b>Definition:</b> kved.h:87</div></div>
-<div class="ttc" id="astructkved__data__s_html_a125b552e1c75e291321ee2c9d15b82c5"><div class="ttname"><a href="structkved__data__s.html#a125b552e1c75e291321ee2c9d15b82c5">kved_data_s::type</a></div><div class="ttdeci">kved_data_types_t type</div><div class="ttdef"><b>Definition:</b> kved.h:122</div></div>
+<div class="ttc" id="agroup___k_v_e_d_html_ga4226a6a5f4017c7cec5a2d62b7b3a1d5"><div class="ttname"><a href="group___k_v_e_d.html#ga4226a6a5f4017c7cec5a2d62b7b3a1d5">kved_data_write</a></div><div class="ttdeci">bool kved_data_write(kved_data_t *data)</div><div class="ttdoc">Writes a new value to the database.</div><div class="ttdef"><b>Definition:</b> <a href="kved_8c_source.html#l00439">kved.c:439</a></div></div>
+<div class="ttc" id="agroup___k_v_e_d_html_ggad7558d8889d87fb23c8e2bd5b125e69ea2081d2031bc2e663906a08d7511d414a"><div class="ttname"><a href="group___k_v_e_d.html#ggad7558d8889d87fb23c8e2bd5b125e69ea2081d2031bc2e663906a08d7511d414a">KVED_DATA_TYPE_UINT32</a></div><div class="ttdeci">@ KVED_DATA_TYPE_UINT32</div><div class="ttdef"><b>Definition:</b> <a href="kved_8h_source.html#l00084">kved.h:84</a></div></div>
+<div class="ttc" id="agroup___k_v_e_d_html_ggad7558d8889d87fb23c8e2bd5b125e69ea2f960cf54633b3b71fb7dce43b2a876f"><div class="ttname"><a href="group___k_v_e_d.html#ggad7558d8889d87fb23c8e2bd5b125e69ea2f960cf54633b3b71fb7dce43b2a876f">KVED_DATA_TYPE_STRING</a></div><div class="ttdeci">@ KVED_DATA_TYPE_STRING</div><div class="ttdef"><b>Definition:</b> <a href="kved_8h_source.html#l00087">kved.h:87</a></div></div>
+<div class="ttc" id="astructkved__data__s_html_a125b552e1c75e291321ee2c9d15b82c5"><div class="ttname"><a href="structkved__data__s.html#a125b552e1c75e291321ee2c9d15b82c5">kved_data_s::type</a></div><div class="ttdeci">kved_data_types_t type</div><div class="ttdef"><b>Definition:</b> <a href="kved_8h_source.html#l00122">kved.h:122</a></div></div>
 </div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="kved_8c_source.html#l00439">439</a> of file <a class="el" href="kved_8c_source.html">kved.c</a>.</p>
+
+</div>
+</div>
+<a id="ga4d17003ec78053116dc228432ba460e8" name="ga4d17003ec78053116dc228432ba460e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4d17003ec78053116dc228432ba460e8">&#9670;&nbsp;</a></span>kved_dump()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void kved_dump </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Print all values stored in the database. </p>
+
+<p class="definition">Definition at line <a class="el" href="kved_8c_source.html#l00794">794</a> of file <a class="el" href="kved_8c_source.html">kved.c</a>.</p>
+
 </div>
 </div>
 <a id="gac6f51b721f2419c285795b549a101ea7" name="gac6f51b721f2419c285795b549a101ea7"></a>
@@ -663,6 +741,30 @@ false: error during the recording process.</dd></dl>
 <p>Get the first valid index in the database. </p>
 <dl class="section return"><dt>Returns</dt><dd>returns <a class="el" href="group___k_v_e_d.html#gac07b3d4adb14be1b648929f06b7017c0">KVED_INDEX_NOT_FOUND</a> (index not found, database empty) or an index value greater than zero </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="kved_8c_source.html#l00468">468</a> of file <a class="el" href="kved_8c_source.html">kved.c</a>.</p>
+
+</div>
+</div>
+<a id="ga4fbcb6030e23c03fa26d30f1db74fd66" name="ga4fbcb6030e23c03fa26d30f1db74fd66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4fbcb6030e23c03fa26d30f1db74fd66">&#9670;&nbsp;</a></span>kved_format()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void kved_format </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Format the database, deleting all values. </p>
+
+<p class="definition">Definition at line <a class="el" href="kved_8c_source.html#l00684">684</a> of file <a class="el" href="kved_8c_source.html">kved.c</a>.</p>
+
 </div>
 </div>
 <a id="gafbf4d4bf8845416616e77bb73467a352" name="gafbf4d4bf8845416616e77bb73467a352"></a>
@@ -683,6 +785,30 @@ false: error during the recording process.</dd></dl>
 
 <p>Returns the number available entries in the database. </p>
 <dl class="section return"><dt>Returns</dt><dd>Number of entries </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="kved_8c_source.html#l00546">546</a> of file <a class="el" href="kved_8c_source.html">kved.c</a>.</p>
+
+</div>
+</div>
+<a id="ga0d0b155d36b87b1a7de3455661e69a48" name="ga0d0b155d36b87b1a7de3455661e69a48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0d0b155d36b87b1a7de3455661e69a48">&#9670;&nbsp;</a></span>kved_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void kved_init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize the database. Must be called before any use. </p>
+
+<p class="definition">Definition at line <a class="el" href="kved_8c_source.html#l00801">801</a> of file <a class="el" href="kved_8c_source.html">kved.c</a>.</p>
 
 </div>
 </div>
@@ -721,6 +847,8 @@ false: error during the recording process.</dd></dl>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="kved_8c_source.html#l00233">233</a> of file <a class="el" href="kved_8c_source.html">kved.c</a>.</p>
+
 </div>
 </div>
 <a id="gac4c7aed29d9816bcacad538fb3c97a43" name="gac4c7aed29d9816bcacad538fb3c97a43"></a>
@@ -747,6 +875,8 @@ false: error during the recording process.</dd></dl>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Encoded key entry </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="kved_8c_source.html#l00244">244</a> of file <a class="el" href="kved_8c_source.html">kved.c</a>.</p>
 
 </div>
 </div>
@@ -775,6 +905,8 @@ false: error during the recording process.</dd></dl>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>return <a class="el" href="group___k_v_e_d.html#gac07b3d4adb14be1b648929f06b7017c0">KVED_INDEX_NOT_FOUND</a> when the end of the database is reached or a valid index value (greater than zero) </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="kved_8c_source.html#l00497">497</a> of file <a class="el" href="kved_8c_source.html">kved.c</a>.</p>
+
 </div>
 </div>
 <a id="ga38c110c04a87366e2628792fbf0451a2" name="ga38c110c04a87366e2628792fbf0451a2"></a>
@@ -796,6 +928,8 @@ false: error during the recording process.</dd></dl>
 <p>Returns the number of database entries (used or not) </p>
 <dl class="section return"><dt>Returns</dt><dd>Number of entries </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="kved_8c_source.html#l00565">565</a> of file <a class="el" href="kved_8c_source.html">kved.c</a>.</p>
+
 </div>
 </div>
 <a id="ga8b14523570f25dc325fcfe3305fc9e84" name="ga8b14523570f25dc325fcfe3305fc9e84"></a>
@@ -816,6 +950,8 @@ false: error during the recording process.</dd></dl>
 
 <p>Returns the number of used database entries. </p>
 <dl class="section return"><dt>Returns</dt><dd>Number of entries </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="kved_8c_source.html#l00584">584</a> of file <a class="el" href="kved_8c_source.html">kved.c</a>.</p>
 
 </div>
 </div>

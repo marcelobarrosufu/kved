@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>kved: Globals</title>
+<title>kved: kved_cpu.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -46,7 +46,6 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,23 +60,29 @@ $(function() {
 </iframe>
 </div>
 
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">kved_cpu.c File Reference</div></div>
+</div><!--header-->
 <div class="contents">
-&#160;<ul>
-<li>KVED_DELETED_ENTRY&#160;:&#160;<a class="el" href="group___k_v_e_d.html#gad97e69aae5f39b235dc2a283893fec9c">kved.h</a></li>
-<li>KVED_ENTRY_SIZE_IN_WORDS&#160;:&#160;<a class="el" href="group___k_v_e_d.html#gafa924f87e855d98ad2440e3f1e0c0449">kved.h</a></li>
-<li>KVED_FLASH_UINT_MAX&#160;:&#160;<a class="el" href="group___k_v_e_d.html#ga93ea69760d2ae6f394635fe4481c412f">kved.h</a></li>
-<li>KVED_FLASH_WORD_SIZE&#160;:&#160;<a class="el" href="group___k_v_e_d.html#gabdcecd41dafb9fb70a0dcd4f07ffcc50">kved_config.h</a></li>
-<li>KVED_FREE_ENTRY&#160;:&#160;<a class="el" href="group___k_v_e_d.html#gadf143d114dd7afdaca1ca2d0fad1de7a">kved.h</a></li>
-<li>KVED_HDR_ENTRY_MSK&#160;:&#160;<a class="el" href="group___k_v_e_d.html#gae800de196d841eba4bc137559d927cca">kved.h</a></li>
-<li>KVED_HDR_MASK_KEY&#160;:&#160;<a class="el" href="group___k_v_e_d.html#ga513ca0a5d39e71641ada97ca5a0b3162">kved.h</a></li>
-<li>KVED_HDR_MASK_SIZE&#160;:&#160;<a class="el" href="group___k_v_e_d.html#gacb957c15177da0754036727f67c11a47">kved.h</a></li>
-<li>KVED_HDR_MASK_TYPE&#160;:&#160;<a class="el" href="group___k_v_e_d.html#ga918eece0babb70a257ce1b8547d7ee29">kved.h</a></li>
-<li>KVED_HDR_SIZE_IN_WORDS&#160;:&#160;<a class="el" href="group___k_v_e_d.html#ga526aae337f229fc5d60f18a4b81b4939">kved.h</a></li>
-<li>KVED_INDEX_NOT_FOUND&#160;:&#160;<a class="el" href="group___k_v_e_d.html#gac07b3d4adb14be1b648929f06b7017c0">kved.h</a></li>
-<li>KVED_MAX_KEY_SIZE&#160;:&#160;<a class="el" href="group___k_v_e_d.html#gaad22b74165a6a3fd5e32b2ac5f7e90cd">kved.h</a></li>
-<li>KVED_MAX_STRING_SIZE&#160;:&#160;<a class="el" href="group___k_v_e_d.html#gabd2235e7760e98744ecebd177e6e3434">kved.h</a></li>
-<li>KVED_SIGNATURE_ENTRY&#160;:&#160;<a class="el" href="group___k_v_e_d.html#gad62546eeb106c4dc81915fd0ba3771d6">kved.h</a></li>
-</ul>
+<div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="kved_8h_source.html">kved.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="kved__cpu_8h_source.html">kved_cpu.h</a>&quot;</code><br />
+</div>
+<p><a href="kved__cpu_8c_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gaa3ecd7be12aa17b3c6c424e4fe2d3672"><td class="memItemLeft" align="right" valign="top">__weak void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___k_v_e_d___c_p_u.html#gaa3ecd7be12aa17b3c6c424e4fe2d3672">kved_cpu_critical_section_enter</a> (void)</td></tr>
+<tr class="memdesc:gaa3ecd7be12aa17b3c6c424e4fe2d3672"><td class="mdescLeft">&#160;</td><td class="mdescRight">Critical section entry point.  <a href="group___k_v_e_d___c_p_u.html#gaa3ecd7be12aa17b3c6c424e4fe2d3672">More...</a><br /></td></tr>
+<tr class="separator:gaa3ecd7be12aa17b3c6c424e4fe2d3672"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga614d7217e9bbb7a9f3297a015f655707"><td class="memItemLeft" align="right" valign="top">__weak void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___k_v_e_d___c_p_u.html#ga614d7217e9bbb7a9f3297a015f655707">kved_cpu_critical_section_leave</a> (void)</td></tr>
+<tr class="memdesc:ga614d7217e9bbb7a9f3297a015f655707"><td class="mdescLeft">&#160;</td><td class="mdescRight">Critical section exit.  <a href="group___k_v_e_d___c_p_u.html#ga614d7217e9bbb7a9f3297a015f655707">More...</a><br /></td></tr>
+<tr class="separator:ga614d7217e9bbb7a9f3297a015f655707"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

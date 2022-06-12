@@ -5,6 +5,10 @@ implementation for microcontrollers.
 Copyright (c) 2022 Marcelo Barros de Almeida <marcelobarrosalmeida@gmail.com>
 */
 
+/**
+@file
+*/
+
 #include <stdint.h>
 #include <stdbool.h>
 
