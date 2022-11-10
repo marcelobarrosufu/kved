@@ -23,7 +23,7 @@ void kved_value_test(void)
 
 	// U8
 	d.type = KVED_DATA_TYPE_UINT8;
-	v.u8 = UINT8_MAX;
+	d.value.u8 = UINT8_MAX;
 	v.u8 = d.value.u8;
 	kved_data_write(&d);
 	kved_data_read(&d);
@@ -39,7 +39,7 @@ void kved_value_test(void)
 
 	// U16
 	d.type = KVED_DATA_TYPE_UINT16;
-	v.u16 = UINT16_MAX;
+	d.value.u16 = UINT16_MAX;
 	v.u16 = d.value.u16;
 	kved_data_write(&d);
 	kved_data_read(&d);
@@ -55,7 +55,7 @@ void kved_value_test(void)
 
 	// U32
 	d.type = KVED_DATA_TYPE_UINT32;
-	v.u32 = UINT32_MAX;
+	d.value.u32 = UINT32_MAX;
 	v.u32 = d.value.u32;
 	kved_data_write(&d);
 	kved_data_read(&d);
