@@ -106,7 +106,6 @@ For a sector of 2048 bytes and a 32 bits flash, the number of entries is given b
 
 kved basically depends on the following files:
 
-* ```kved_config.h```: define your flash word size (```KVED_FLASH_WORD_SIZE```)
 * ```kved.c``` / ```kved.h```: kved implementation
 * ```kved_cpu.c``` / ```kved_cpu.h```: cpu portability API if you need thead/interrupt safe operation
 * ```kved_flash.c``` / ```kved_flash.h```: flash API
@@ -130,18 +129,22 @@ You need to reserve two sectors of your microcontroller for kved usage and creat
   * ```uint32_t kved_flash_sector_size(void)```
   * ```void kved_flash_init(void)```
 
+###  ```port_flash.h```
+
+Define flash word size. 
 
 ## Linker
 
-Do not forget to reserve your flash sectors on your linker file otherwise your compiler can use them. For GNU linker (ld) see examples in STM32L433RC and STM32F411CE ports.
+Do not forget to reserve your flash sectors on your linker file otherwise your compiler can use them. For GNU linker (ld) see examples in STM32L433RC, STM32F411CE and STM32WB55RG ports.
 
 ## Ports
 
-A the momment, 3 ports are supported:
+A the momment, 4 ports are supported:
 
 * Simul (simulation port, runs on PC, useful for debugging). Just type scons at repository root and run ```./kved```. GCC will be used as compiler.
 * STM32L433RC using low level STM32 drivers.
 * STM32F411CE (blackpill) using high level STM32 drivers.
+* STM32WB55RG using low level STM32 drivers plus optional HSEM, using high level STM32 drivers.
 
 # Documentation
 

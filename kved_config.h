@@ -14,15 +14,10 @@ Copyright (c) 2022 Marcelo Barros de Almeida <marcelobarrosalmeida@gmail.com>
 
 #pragma once
 
-/**
-@brief Flash word size.
-Set your flash word size (4 or 8 bytes).
-This can be done when compiling using -DKVED_FLASH_WORD_SIZE=8, for instance.
-*/
-#ifndef KVED_FLASH_WORD_SIZE
-// #define KVED_FLASH_WORD_SIZE (8)
-#define KVED_FLASH_WORD_SIZE (4)
-#endif
+#include "port_flash.h"
+
+
+#define KVED_FLASH_WORD_SIZE PORT_KVED_FLASH_WORD_SIZE
 
 //#define KVED_DEBUG
 
