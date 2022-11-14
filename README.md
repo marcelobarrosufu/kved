@@ -135,16 +135,17 @@ Define flash word size.
 
 ## Linker
 
-Do not forget to reserve your flash sectors on your linker file otherwise your compiler can use them. For GNU linker (ld) see examples in STM32L433RC, STM32F411CE and STM32WB55RG ports.
+Do not forget to reserve your flash sectors on your linker file otherwise your compiler can use them. For GNU linker (ld) see examples in STM32L433RC, STM32F411CE, STM32WB55RG and STM32F103C8 ports.
 
 ## Ports
 
-A the momment, 4 ports are supported:
+A the momment, 5 ports are supported:
 
 * Simul (simulation port, runs on PC, useful for debugging). Just type scons at repository root and run ```./kved```. GCC will be used as compiler.
 * STM32L433RC using low level STM32 drivers.
 * STM32F411CE (blackpill) using high level STM32 drivers.
 * STM32WB55RG using low level STM32 drivers plus optional HSEM, using high level STM32 drivers.
+* STM32F103C8 (bluepill) using low level STM32 drivers.
 
 # Documentation
 
