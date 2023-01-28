@@ -22,7 +22,6 @@ Copyright (c) 2022 Fabricio Lucas de Almeida <fabriciolucasfbr@gmail.com>
 const uint32_t sector_size[KVED_FLASH_NUM_SECTORS] = { FLASH_SECTOR_SIZE, FLASH_SECTOR_SIZE };
 const uint32_t sector_address[KVED_FLASH_NUM_SECTORS] = { 0x0807E000, 0x0807F000 };
 const uint8_t sector_page[KVED_FLASH_NUM_SECTORS] = { 126, 127 };
-/* need define -> #define KVED_FLASH_WORD_SIZE (8) */
 
 static volatile bool reactivate_icache = false;
 static volatile bool reactivate_dcache = false;
