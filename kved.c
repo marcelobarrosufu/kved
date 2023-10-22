@@ -31,7 +31,7 @@ const uint8_t kved_data_type_size[] =
 	2,
 	4,
 	KVED_MAX_STRING_SIZE,
-#if KVED_FLASH_WORD_SIZE == 8	
+#if KVED_FLASH_WORD_SIZE >= 8
 	8,
 	8,
 	8,
@@ -79,7 +79,7 @@ const uint8_t *kved_data_type_label[] =
 	(uint8_t *)"I32",
 	(uint8_t *)"FLT",
 	(uint8_t *)"STR",
-#if KVED_FLASH_WORD_SIZE == 8	
+#if KVED_FLASH_WORD_SIZE >= 8
 	(uint8_t *)"U64",
 	(uint8_t *)"I64",
 	(uint8_t *)"DBL",
@@ -210,11 +210,11 @@ static void kved_sector_stats_read(kved_ctrl_t *ctrl)
 	{
 		kved_word_t key = kved_flash_data_read(ctrl->sector,index);
 
-		if(key == KVED_DELETED_ENTRY)
+		if(KVED_ENTRY_IS_EQUAL(key,KVED_DELETED_ENTRY))
 		{
 			ctrl->stats.num_deleted_entries++;
 		}
-		else if(key == KVED_FREE_ENTRY)
+		else if(KVED_ENTRY_IS_EQUAL(key,KVED_FREE_ENTRY))
 		{
 			ctrl->stats.num_free_entries++;
 
@@ -251,7 +251,7 @@ kved_word_t kved_key_encode(kved_data_t *data)
 	uint8_t size = data->type == KVED_DATA_TYPE_STRING ? strnlen((char *)str_key,KVED_MAX_KEY_SIZE) : kved_data_type_size[data->type];
 	uint8_t hdr = (data->type << 4) | size;
 
-	kved_word_t encoded_key = 0;
+	kved_word_t encoded_key = KVED_NULL_ENTRY;
 	uint8_t *pkey = (uint8_t *) &encoded_key;
 	pkey += KVED_MAX_KEY_SIZE;
 
@@ -267,9 +267,9 @@ static bool kved_is_valid_key(kved_word_t key)
 {
 	key = KVED_HDR_MASK_KEY(key);
 
-	return (key == KVED_HDR_MASK_KEY(KVED_SIGNATURE_ENTRY)) ||
-		   (key == KVED_HDR_MASK_KEY(KVED_DELETED_ENTRY)) ||
-		   (key == KVED_HDR_MASK_KEY(KVED_FREE_ENTRY)) ? false : true;
+	return (KVED_ENTRY_IS_EQUAL(key,KVED_HDR_MASK_KEY(KVED_SIGNATURE_ENTRY))) ||
+		   (KVED_ENTRY_IS_EQUAL(key,KVED_HDR_MASK_KEY(KVED_DELETED_ENTRY))) ||
+		   (KVED_ENTRY_IS_EQUAL(key,KVED_HDR_MASK_KEY(KVED_FREE_ENTRY))) ? false : true;
 }
 
 static uint16_t kved_key_index_find(kved_word_t key)
@@ -283,7 +283,7 @@ static uint16_t kved_key_index_find(kved_word_t key)
 		kved_word_t key_entry = kved_flash_data_read(ctrl.sector,index);
 		key_entry = KVED_HDR_MASK_KEY(key_entry);
 
-		if(key == key_entry)
+		if(KVED_ENTRY_IS_EQUAL(key,key_entry))
 		{
 			key_index = index;
 			break;
@@ -295,7 +295,7 @@ static uint16_t kved_key_index_find(kved_word_t key)
 
 static kved_word_t kved_value_encode(kved_data_t *data)
 {
-#if KVED_FLASH_WORD_SIZE == 8	
+#if KVED_FLASH_WORD_SIZE >= 8
 	return data->value.u64;
 #else
 	return data->value.u32;
@@ -304,7 +304,7 @@ static kved_word_t kved_value_encode(kved_data_t *data)
 
 static void kved_value_decode(kved_data_t *data, kved_word_t value)
 {
-#if KVED_FLASH_WORD_SIZE == 8		
+#if KVED_FLASH_WORD_SIZE >= 8
 	data->value.u64 = value;
 #else
 	data->value.u32 = value;
@@ -332,7 +332,7 @@ static void kved_sector_switch(kved_ctrl_t *ctrl, kved_word_t cnt, kved_word_t u
 
 			kved_flash_data_write(next_sector,next_index++,key);
 
-			if(KVED_HDR_MASK_KEY(key) == upd_key)
+			if(KVED_ENTRY_IS_EQUAL(KVED_HDR_MASK_KEY(key),upd_key))
 				kved_flash_data_write(next_sector,next_index++,upd_value);
 			else
 				kved_flash_data_write(next_sector,next_index++,val);
@@ -354,7 +354,7 @@ static void kved_sector_switch(kved_ctrl_t *ctrl, kved_word_t cnt, kved_word_t u
 	ctrl->stats.num_free_entries = total_items - used_items;
 
 	// last value is not valid since it is equal to an erased flash entry
-	if((cnt + 1) == KVED_FLASH_UINT_MAX) // last value, avoiding some #if #def related to flash size
+	if(KVED_ENTRY_IS_EQUAL(KVED_ENTRY_FROM_VALUE(cnt + 1),KVED_FLASH_UINT_MAX)) // last value, avoiding some #if #def related to flash size
 		cnt = 0;
 	else
 		cnt++;
@@ -362,7 +362,7 @@ static void kved_sector_switch(kved_ctrl_t *ctrl, kved_word_t cnt, kved_word_t u
 	kved_flash_data_write(next_sector,1,cnt);
 	kved_flash_data_write(next_sector,0,KVED_SIGNATURE_ENTRY);
 
-	kved_flash_data_write(last_sector,0,0); // only invalidate header, it is faster
+	kved_flash_data_write(last_sector,0,KVED_NULL_ENTRY); // only invalidate header, it is faster
 }
 
 static bool kved_internal_data_write(kved_data_t *data)
@@ -385,7 +385,7 @@ static bool kved_internal_data_write(kved_data_t *data)
 	{
 		kved_word_t stored_value = kved_flash_data_read(ctrl.sector,key_index + 1);
 
-		if(stored_value == kved_value_encode(data))
+		if(KVED_ENTRY_IS_EQUAL(stored_value,kved_value_encode(data)))
 			return true;
 	}
 
@@ -675,7 +675,7 @@ static void kved_internal_format(void)
 	// setup sector as first sector and update stats.
 	// Consistency is not required in such situation.
 	ctrl.sector  = KVED_FLASH_SECTOR_A;
-	kved_flash_data_write(ctrl.sector,1,0);// first cnt, after ID
+	kved_flash_data_write(ctrl.sector,1,KVED_NULL_ENTRY);// first cnt, after ID
 	kved_flash_data_write(ctrl.sector,0,KVED_SIGNATURE_ENTRY);
 
 	kved_sector_stats_read(&ctrl);
@@ -701,14 +701,14 @@ static void kved_sector_consistency_check(void)
 	// after data copying and, in this case, the section with the
 	// newest cnt will win and the other can be erase as the copy was done.
 	// (remember: last value (0xFF..FF) is not valid as it is the same value of a erased word
-	if((id_sec_a == KVED_SIGNATURE_ENTRY) && (id_sec_b == KVED_SIGNATURE_ENTRY))
+	if(KVED_ENTRY_IS_EQUAL(id_sec_a,KVED_SIGNATURE_ENTRY) && KVED_ENTRY_IS_EQUAL(id_sec_b,KVED_SIGNATURE_ENTRY))
 	{
 		kved_word_t cnt_sec_a = kved_flash_data_read(KVED_FLASH_SECTOR_A,1);
 		kved_word_t cnt_sec_b = kved_flash_data_read(KVED_FLASH_SECTOR_B,1);
 
 		// the (a) counter rolled over and the
 		// sector (a->b) copy was done so erase older sector (a) and use the newer (b)
-		if((cnt_sec_a == (KVED_FLASH_UINT_MAX-1)) && (cnt_sec_b == 0))
+		if((cnt_sec_a == (KVED_FLASH_UINT_MAX-1)) && KVED_ENTRY_IS_EQUAL(cnt_sec_b,0))
 		{
 			invalidate_a = true;
 		}
@@ -723,8 +723,8 @@ static void kved_sector_consistency_check(void)
 		// and rescue some valid entries. Not implemented, anyway.
 		else if((cnt_sec_a == KVED_FLASH_UINT_MAX) || (cnt_sec_b == KVED_FLASH_UINT_MAX))
 		{
-			invalidate_a = cnt_sec_a == KVED_FLASH_UINT_MAX ;
-			invalidate_b = cnt_sec_b == KVED_FLASH_UINT_MAX;
+			invalidate_a = KVED_ENTRY_IS_EQUAL(cnt_sec_a,KVED_FLASH_UINT_MAX);
+			invalidate_b = KVED_ENTRY_IS_EQUAL(cnt_sec_b,KVED_FLASH_UINT_MAX);
 		}
 
 		// ok, regular situation where one counter is the newest and 
@@ -739,10 +739,10 @@ static void kved_sector_consistency_check(void)
 
 		// Invalidate selected sectors ...
 		if(invalidate_a)
-			kved_flash_data_write(KVED_FLASH_SECTOR_A,0,0);
+			kved_flash_data_write(KVED_FLASH_SECTOR_A,0,KVED_NULL_ENTRY);
 
 		if(invalidate_b)
-			kved_flash_data_write(KVED_FLASH_SECTOR_B,0,0);
+			kved_flash_data_write(KVED_FLASH_SECTOR_B,0,KVED_NULL_ENTRY);
 	}
 }
 
@@ -761,7 +761,7 @@ static void kved_data_consistency_check(void)
 		// by application, removing any unknown or unexpected key (application knows its owns keys, kved not). 
 		if((key == KVED_FLASH_UINT_MAX) && (val != KVED_FLASH_UINT_MAX))
 		{
-			kved_flash_data_write(ctrl.sector,index,0);
+			kved_flash_data_write(ctrl.sector,index,KVED_NULL_ENTRY);
 			ctrl.stats.num_deleted_entries++;
 			ctrl.stats.num_free_entries--;
 			continue;
@@ -780,7 +780,7 @@ static void kved_data_consistency_check(void)
 				{
 					if(KVED_HDR_MASK_KEY(dup_key) == KVED_HDR_MASK_KEY(key))
 					{
-						kved_flash_data_write(ctrl.sector,index,0);
+						kved_flash_data_write(ctrl.sector,index,KVED_NULL_ENTRY);
 						ctrl.stats.num_deleted_entries++;
 						ctrl.stats.num_used_entries--;
 						break;
@@ -807,11 +807,11 @@ void kved_init(void)
 	kved_word_t id_sec_a = kved_flash_data_read(KVED_FLASH_SECTOR_A,0);
 	kved_word_t id_sec_b = kved_flash_data_read(KVED_FLASH_SECTOR_B,0);
 
-	if(id_sec_a == KVED_SIGNATURE_ENTRY)
+	if(KVED_ENTRY_IS_EQUAL(id_sec_a,KVED_SIGNATURE_ENTRY))
 	{
 		ctrl.sector = KVED_FLASH_SECTOR_A;
 	}
-	else if(id_sec_b == KVED_SIGNATURE_ENTRY)
+	else if(KVED_ENTRY_IS_EQUAL(id_sec_b,KVED_SIGNATURE_ENTRY))
 	{
 		ctrl.sector = KVED_FLASH_SECTOR_B;
 	}

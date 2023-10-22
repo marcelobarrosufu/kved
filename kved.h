@@ -18,7 +18,7 @@ Copyright (c) 2022 Marcelo Barros de Almeida <marcelobarrosalmeida@gmail.com>
 
 /* kved structure
 
-<- 4 bytes -><- 4 bytes ->  <= 8 bytes when using flash with word of 64 bits 
+<-flashword->|<-flashword->  <= 8 bytes when using flash with word of 64 bits , for instance
 +------------+------------+
 | SIGNATURE  |  COUNTER   | <= HEADER ID AND NEWER COPY IDENTIFICATION
 +---------+--+------------+
@@ -39,31 +39,54 @@ Copyright (c) 2022 Marcelo Barros de Almeida <marcelobarrosalmeida@gmail.com>
 
 */
 
-#if KVED_FLASH_WORD_SIZE == 4
+#if KVED_FLASH_WORD_SIZE == 16
+	typedef struct { uint64_t low; uint64_t high; } kved_word_t; /**< flash word data type */
+#elif KVED_FLASH_WORD_SIZE == 8
+	typedef uint64_t kved_word_t; /**< flash word data type */
+#elif KVED_FLASH_WORD_SIZE == 4
 	typedef uint32_t kved_word_t; /**< flash word data type */
 #else
-	typedef uint64_t kved_word_t; /**< flash word data type */
+	#error Invalid flash word data type
 #endif
 
-#if KVED_FLASH_WORD_SIZE == 8
+#define KVED_HDR_SIZE_IN_WORDS    2 /**< kved header size */
+#define KVED_ENTRY_SIZE_IN_WORDS  2 /**< kved entry size */
+
+#if KVED_FLASH_WORD_SIZE == 16
+	#define KVED_SIGNATURE_ENTRY     (kved_word_t) { .low = 0xDEADBEEFDEADBEEFULL, .high = 0xDEADBEEFDEADBEEFULL }
+	#define KVED_DELETED_ENTRY       (kved_word_t) { .low = 0x0000000000000000ULL, .high = 0x0000000000000000ULL }
+	#define KVED_FREE_ENTRY          (kved_word_t) { .low = 0xFFFFFFFFFFFFFFFFULL, .high = 0xFFFFFFFFFFFFFFFFULL }
+	#define KVED_HDR_ENTRY_MSK       (kved_word_t) { .low = 0xFFFFFFFFFFFFFF00ULL, .high = 0xFFFFFFFFFFFFFFFFULL }
+#elif KVED_FLASH_WORD_SIZE == 8
 	#define KVED_SIGNATURE_ENTRY  0xDEADBEEFDEADBEEFULL
 	#define KVED_DELETED_ENTRY    0x0000000000000000ULL
 	#define KVED_FREE_ENTRY       0xFFFFFFFFFFFFFFFFULL
 	#define KVED_HDR_ENTRY_MSK    0xFFFFFFFFFFFFFF00ULL
-#else
+#elif KVED_FLASH_WORD_SIZE == 4
 	#define KVED_SIGNATURE_ENTRY  0xDEADBEEFUL /**< kved signature */
 	#define KVED_DELETED_ENTRY    0x00000000UL /**< deleted entry identification */
 	#define KVED_FREE_ENTRY       0xFFFFFFFFUL /**< free entry identification */
 	#define KVED_HDR_ENTRY_MSK    0xFFFFFF00UL /**< label entry mask */
 #endif
 
-#define KVED_HDR_SIZE_IN_WORDS    2 /**< kved header size */
-#define KVED_ENTRY_SIZE_IN_WORDS  2 /**< kved entry size */
-#define KVED_HDR_MASK_KEY(k)      ( (k) & KVED_HDR_ENTRY_MSK) /**< label entry mask */
-#define KVED_HDR_MASK_TYPE(k)     (((k) & 0xF0) >> 4) /**< type entry mask */
-#define KVED_HDR_MASK_SIZE(k)     (((k) & 0x0F)) /**< size entry mask */
+#if KVED_FLASH_WORD_SIZE == 16
+	#define KVED_HDR_MASK_KEY(k)      ((kved_word_t) { .low = (k).low & KVED_HDR_ENTRY_MSK.low, .high = (k).high & KVED_HDR_ENTRY_MSK.high }) /**< label entry mask */
+	#define KVED_HDR_MASK_TYPE(k)     (((k).low & 0xF0) >> 4) /**< type entry mask */
+	#define KVED_HDR_MASK_SIZE(k)     (((k).low & 0x0F)) /**< size entry mask */
+	#define KVED_FLASH_UINT_MAX       ((kved_word_t){ .low = 0xFFFFFFFFFFFFFFFFULL, .high = 0xFFFFFFFFFFFFFFFFULL }) /**< last valid unsigned int value for current flash word */
+	#define KVED_ENTRY_IS_EQUAL(a,b)  (((a).low == (b).low) && ((a).high == (b).high)) /**< check when entry is equal */
+    #define KVED_ENTRY_FROM_VALUE(v)  ((kved_word_t){ .low = (v), .high = (v) })
+#else
+	#define KVED_HDR_MASK_KEY(k)      ( (k) & KVED_HDR_ENTRY_MSK) /**< label entry mask */
+	#define KVED_HDR_MASK_TYPE(k)     (((k) & 0xF0) >> 4) /**< type entry mask */
+	#define KVED_HDR_MASK_SIZE(k)     (((k) & 0x0F)) /**< size entry mask */
+	#define KVED_FLASH_UINT_MAX       (~((kved_word_t)0)) /**< last valid unsigned int value for current flash word */
+	#define KVED_ENTRY_IS_EQUAL(a,b)  ((a) == (b)) /**< check when entry is equal */
+	#define KVED_ENTRY_FROM_VALUE(v)  ((kved_word_t)0)
+#endif
 
-#define KVED_FLASH_UINT_MAX  ((kved_word_t)(~0)) /**< last valid unsigned int value for current flash word */
+
+#define KVED_NULL_ENTRY KVED_DELETED_ENTRY
 
 /** Maximum supported string length, per record, without termination */
 #define KVED_MAX_STRING_SIZE (KVED_FLASH_WORD_SIZE)
@@ -85,7 +108,7 @@ typedef enum kved_data_types_e
 	KVED_DATA_TYPE_INT32,     /**< 32 bits, com sinal */
 	KVED_DATA_TYPE_FLOAT,     /**< Single precision floating point (float) */
 	KVED_DATA_TYPE_STRING,    /**< String up to @ref KVED_MAX_STRING_SIZE bytes, excluding terminator */
-#if KVED_FLASH_WORD_SIZE == 8
+#if KVED_FLASH_WORD_SIZE >= 8
 	KVED_DATA_TYPE_UINT64,    /**< 64 bits, signed */
 	KVED_DATA_TYPE_INT64,     /**< 64 bits, unsigned */
 	KVED_DATA_TYPE_DOUBLE,    /**< Double precision floating point (double) */
@@ -105,7 +128,7 @@ typedef union kved_value_u
 	int32_t i32; /**< signed 32 bits value */
 	float flt; /**< single precision float */
 	uint8_t str[KVED_MAX_STRING_SIZE]; /**< string */
-#if KVED_FLASH_WORD_SIZE == 8	
+#if KVED_FLASH_WORD_SIZE >= 8
 	uint64_t u64; /**< unsigned 64 bits value */
 	int64_t i64; /**< signed 64 bits value */
 	double dbl; /**< double precision float */

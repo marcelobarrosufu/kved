@@ -16,8 +16,8 @@ kved (key/value embedded database) is a simple key/value database implementation
 
 * You need to use two flash sectors, with same size. 
 * Your flash needs to support word granularity writings.
-* After writing into a flash position (a word) should be possible to write again, lowering bit that were high. This is the mechanism to invalided a register.
-* Multiple sectors support not implemented.
+* After writing into a flash position (a word) should be possible to write again, lowering bit that were high. This is the mechanism to invalidate a register.
+* Multiple sectors support not implemented, only a sector and his support backup sector.
 * As with many wear leveling systems, it is not desirable to use the system near maximum storage capacity. An effective use of 50% or less of the entries is recommended. 
 
 ## How kved works
