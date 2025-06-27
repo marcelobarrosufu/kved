@@ -9,6 +9,5 @@ Copyright (c) 2022 Fabricio Lucas de Almeida <fabriciolucasfbr@gmail.com>
 
 /**
 @brief Flash word size.
-Max supported is 16 bytes, but used 8 bytes only.
 */
 #define PORT_KVED_FLASH_WORD_SIZE (8)
