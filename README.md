@@ -155,7 +155,7 @@ Please, see the [HTML Documentation](https://marcelobarrosalmeida.github.io/kved
 
 [MIT License](./LICENSE.md) - Marcelo Barros
 
-# Original Author Contatc
+# Original Author Contact
 
 For enhancements and new ports, please clone the repository and submit a pull request.
 
@@ -166,3 +166,4 @@ Any other requests, please contact me by [email](marcelobarrosalmeida@gmail.com)
 # Contributors
 
 * (Fabrício Lucas)[https://github.com/fbrlucas]
+* (James Hunt)[https://github.com/huntj88]
