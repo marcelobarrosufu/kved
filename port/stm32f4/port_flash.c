@@ -47,7 +47,7 @@ void kved_flash_data_write(kved_flash_sector_t sec_idx, uint16_t index, kved_wor
 	uint32_t addr = sector_address[sec_idx] + index*sizeof(kved_word_t);
 
 	HAL_FLASH_Unlock();
-	HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD,addr,(uint32_t)&data);
+	HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD,addr,data);
 	HAL_FLASH_Lock();
 }
 
