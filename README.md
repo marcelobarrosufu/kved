@@ -147,10 +147,6 @@ A the momment, 5 ports are supported:
 * STM32WB55RG using low level STM32 drivers plus optional HSEM, using high level STM32 drivers.
 * STM32F103C8 (bluepill) using low level STM32 drivers.
 
-# Documentation
-
-Please, see the [HTML Documentation](https://marcelobarrosalmeida.github.io/kved/).
-
 # License
 
 [MIT License](./LICENSE.md) - Marcelo Barros
