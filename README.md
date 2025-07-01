@@ -165,5 +165,5 @@ Any other requests, please contact me by [email](marcelobarrosalmeida@gmail.com)
 
 # Contributors
 
-* (Fabrício Lucas)[https://github.com/fbrlucas]
-* (James Hunt)[https://github.com/huntj88]
+* [Fabrício Lucas](https://github.com/fbrlucas)
+* [James Hunt](https://github.com/huntj88)
